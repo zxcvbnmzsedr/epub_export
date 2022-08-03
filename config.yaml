@@ -1,0 +1,17 @@
+juejing:
+  cookie: ''
+  books:
+    - name: 从0开始深入学习Spring
+      book_id: '6857911863016390663'
+    - name: Kubernetes安全原理与实践
+      book_id: '7044052687779790880'
+    - name: SpringBoot源码解读与原理分析
+      book_id: '6844733814560784397'
+    - name: Vue商城项目开发实战
+      book_id: '6844733826191589390'
+
+#yuque:
+#  cookie: ''
+#  books:
+#    - name: Java面试指北
+#      url: 'https://www.yuque.com/books/share/04ac99ea-7726-4adb-8e57-bf21e2cc7183'

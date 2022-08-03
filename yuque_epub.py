@@ -146,7 +146,7 @@ def add_node(p, node):
 
 
 def html_template(html):
-    template = open("yuque/yuyuqe.html", 'rb').read().decode()
+    template = open("yuyuqe.html", 'rb').read().decode()
     h = template.replace('{0}', html)
 
     def filter_emoji(desstr, restr=''):
@@ -158,6 +158,31 @@ def html_template(html):
         return co.sub(restr, desstr)
 
     return filter_emoji(h)
+
+
+def parse(name, cookie, url):
+    book = epub.EpubBook()
+
+    book.set_identifier(name)
+    book.set_title(name)
+    book.set_language('cn')
+
+    book.add_author(name)
+    book.spine.append('nav')
+    add_book(cookie, url, book)
+
+    book.add_item(epub.EpubNcx())
+    book.add_item(epub.EpubNav())
+
+    # define CSS style
+    style = 'BODY {color: white;}'
+    nav_css = epub.EpubItem(uid="style_nav", file_name="style/nav.css", media_type="text/css", content=style)
+
+    # add CSS file
+    book.add_item(nav_css)
+
+    # write to the file
+    epub.write_epub(name + '.epub', book, {})
 
 
 if __name__ == '__main__':
@@ -181,25 +206,4 @@ if __name__ == '__main__':
                         help='Directory containing the HTML documents')
     results = parser.parse_args()
 
-    book = epub.EpubBook()
-
-    book.set_identifier(results.name)
-    book.set_title(results.name)
-    book.set_language('cn')
-
-    book.add_author(results.name)
-    book.spine.append('nav')
-    add_book(results.cookie, results.url, book)
-
-    book.add_item(epub.EpubNcx())
-    book.add_item(epub.EpubNav())
-
-    # define CSS style
-    style = 'BODY {color: white;}'
-    nav_css = epub.EpubItem(uid="style_nav", file_name="style/nav.css", media_type="text/css", content=style)
-
-    # add CSS file
-    book.add_item(nav_css)
-
-    # write to the file
-    epub.write_epub(results.name + '.epub', book, {})
+    parse(results.name, results.cookie, results.url)

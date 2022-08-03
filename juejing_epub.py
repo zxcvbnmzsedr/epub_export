@@ -1,4 +1,5 @@
 import argparse
+import os
 import re
 import uuid
 
@@ -10,17 +11,20 @@ from ebooklib import epub
 def add_book(cookie, book_id, book):
     # 获取书籍目录
     result = requests.post(
-        url='https://api.juejin.cn/booklet_api/v1/booklet/get',
+        url='https://api.juejin.cn/booklet_api/v1/booklet/get?',
         json={
             'booklet_id': book_id
         }
     ).json()
     # 生成目录
+    i = 0
+    all_count = len(result['data']['sections'])
     for session in result['data']['sections']:
         section_id = session['section_id']
         title = session['title']
         title = title.replace('/', '_')
-        print(f'get section {title}   {section_id}')
+        i = i + 1
+        print(f'get section {title}   {section_id} 剩余 {i}/{all_count}')
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
             'cookie': cookie
@@ -39,17 +43,22 @@ def add_book(cookie, book_id, book):
 
         for img in soup.select('img'):
             img_src = img.attrs['src']
-
             img_id = str(uuid.uuid1())
-            r = requests.get(img_src)
-            # open(doc_path + "/" + img_id, 'wb').write(r.content)
-            img['src'] = img_id
-            epub_image = epub.EpubImage()
-            epub_image.content = r.content
-            epub_image.id = img_id
-            epub_image.file_name = img_id
-            epub_image.media_type = 'image/jpg'
-            book.add_item(epub_image)
+            if not img_src.startswith('http'):
+                img_src = 'http:' + img_src
+            try:
+                r = requests.get(img_src)
+                # open(doc_path + "/" + img_id, 'wb').write(r.content)
+                img['src'] = img_id
+                epub_image = epub.EpubImage()
+                epub_image.content = r.content
+                epub_image.id = img_id
+                epub_image.file_name = img_id
+                epub_image.media_type = 'image/jpg'
+                book.add_item(epub_image)
+            except Exception as e:
+                print('图片下载失败 ' + img.attrs['src'])
+                print(e)
 
         s = html_template(f'<h1>{title}</h1>{html_template(soup.prettify())}')
         # 修改html中的图片，整到本地环境中
@@ -75,6 +84,35 @@ def html_template(html):
     return filter_emoji(h)
 
 
+def parse(name, cookie, book_id):
+    if os.path.exists(name + '.epub'):
+        print(name + " 已经存在,跳过下载")
+        return
+
+    book = epub.EpubBook()
+
+    book.set_identifier(name)
+    book.set_title(name)
+    book.set_language('cn')
+
+    book.add_author(name)
+    book.spine.append('nav')
+    add_book(cookie, book_id, book)
+
+    book.add_item(epub.EpubNcx())
+    book.add_item(epub.EpubNav())
+
+    # define CSS style
+    style = 'BODY {color: white;}'
+    nav_css = epub.EpubItem(uid="style_nav", file_name="style/nav.css", media_type="text/css", content=style)
+
+    # add CSS file
+    book.add_item(nav_css)
+
+    # write to the file
+    epub.write_epub(name + '.epub', book, {})
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
@@ -89,25 +127,4 @@ if __name__ == '__main__':
                         help='Directory containing the HTML documents')
     results = parser.parse_args()
 
-    book = epub.EpubBook()
-
-    book.set_identifier(results.name)
-    book.set_title(results.name)
-    book.set_language('cn')
-
-    book.add_author(results.name)
-    book.spine.append('nav')
-    add_book(results.cookie, results.book_id, book)
-
-    book.add_item(epub.EpubNcx())
-    book.add_item(epub.EpubNav())
-
-    # define CSS style
-    style = 'BODY {color: white;}'
-    nav_css = epub.EpubItem(uid="style_nav", file_name="style/nav.css", media_type="text/css", content=style)
-
-    # add CSS file
-    book.add_item(nav_css)
-
-    # write to the file
-    epub.write_epub(results.name + '.epub', book, {})
+    parse(results.name, results.cookie, results.book_id)
