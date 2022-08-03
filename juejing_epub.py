@@ -85,7 +85,8 @@ def html_template(html):
 
 
 def parse(name, cookie, book_id):
-    if os.path.exists(name + '.epub'):
+    file_name = "download/" + name + '.epub'
+    if os.path.exists(file_name):
         print(name + " 已经存在,跳过下载")
         return
 
@@ -110,7 +111,7 @@ def parse(name, cookie, book_id):
     book.add_item(nav_css)
 
     # write to the file
-    epub.write_epub(name + '.epub', book, {})
+    epub.write_epub(file_name, book, {})
 
 
 if __name__ == '__main__':

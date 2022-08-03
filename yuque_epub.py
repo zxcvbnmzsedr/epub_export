@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 import uuid
 from urllib.parse import unquote
@@ -22,7 +23,7 @@ def add_book(cookie, yuque_main_url, book):
     conent_json_str = unquote(re.search(content_regx, resp.content.decode()).group(0))
     content_json = json.loads(conent_json_str)
     tocs = content_json['book']['toc']
-
+    i = 0
     for toc in tocs:
         u_id = toc['uuid']
         toc_url = yuque_main_url + '/' + toc['url']
@@ -33,27 +34,32 @@ def add_book(cookie, yuque_main_url, book):
         toc_content = json.loads(toc_content_result_str)
         toc_content_html = toc_content['doc']['_cachedContent']['_cache_decrypted_body']
         title = toc_content['doc']['title']
-        print(f"正在下载 {title}")
+        i = i + 1
+        print(f"正在下载 {title} 剩余 {i}/{len(tocs)}")
         toc_content_html = toc_content_html.replace('<!doctype html>', '')
 
         soup = BeautifulSoup(toc_content_html, "html.parser")
 
         for img in soup.select('img'):
             img_src = img.attrs['src']
-            if img.has_attr('id'):
-                img_id = 'img' + img.attrs['id']
-                r = requests.get(img_src, headers)
-            else:
-                img_id = str(uuid.uuid1())
-                r = requests.get(img_src)
-            # open(doc_path + "/" + img_id, 'wb').write(r.content)
-            img['src'] = img_id
-            epub_image = epub.EpubImage()
-            epub_image.content = r.content
-            epub_image.id = img_id
-            epub_image.file_name = img_id
-            epub_image.media_type = 'image/jpg'
-            book.add_item(epub_image)
+            try:
+                if img.has_attr('id'):
+                    img_id = 'img' + img.attrs['id']
+                    r = requests.get(img_src, headers)
+                else:
+                    img_id = str(uuid.uuid1())
+                    r = requests.get(img_src)
+                # open(doc_path + "/" + img_id, 'wb').write(r.content)
+                img['src'] = img_id
+                epub_image = epub.EpubImage()
+                epub_image.content = r.content
+                epub_image.id = img_id
+                epub_image.file_name = img_id
+                epub_image.media_type = 'image/jpg'
+                book.add_item(epub_image)
+            except Exception as e:
+                print('图片下载失败 ' + img.attrs['src'])
+                print(e)
 
         s = html_template(f'<h1>{title}</h1>{soup.prettify()}')
         # 修改html中的图片，整到本地环境中
@@ -161,6 +167,10 @@ def html_template(html):
 
 
 def parse(name, cookie, url):
+    file_name = "download/" + name + '.epub'
+    if os.path.exists(file_name):
+        print(name + " 已经存在,跳过下载")
+        return
     book = epub.EpubBook()
 
     book.set_identifier(name)
@@ -182,7 +192,7 @@ def parse(name, cookie, url):
     book.add_item(nav_css)
 
     # write to the file
-    epub.write_epub(name + '.epub', book, {})
+    epub.write_epub(file_name, book, {})
 
 
 if __name__ == '__main__':
