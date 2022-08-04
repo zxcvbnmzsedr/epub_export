@@ -1,5 +1,5 @@
 import yaml
-import juejing_epub
+import juejing.juejing_epub
 import yuque_epub
 
 if __name__ == '__main__':
@@ -11,7 +11,8 @@ if __name__ == '__main__':
             cookie = juejing_config['cookie']
             for book in juejing_config['books']:
                 print('开始下载掘金 ' + book['name'])
-                juejing_epub.parse(name=book['name'], cookie=juejing_config['cookie'], book_id=book['book_id'])
+                juejing.juejing_epub.parse(name=book['name'], cookie=juejing_config['cookie'], book_id=book['book_id'],
+                                   cover_url=book.get('cover_url'))
         if 'yuque' in ayml:
             juejing_config = ayml['yuque']
             cookie = juejing_config['cookie']
