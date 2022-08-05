@@ -69,47 +69,48 @@ def add_book(cookie, yuque_main_url, book):
         book.spine.append(c1)
 
     toc_tree = toc_list_to_tree(tocs)
-    book_add_toc_tree(book, toc_tree)
-    # result = book_add_toc_tree2(toc_tree)
+    # book_add_toc_tree(book, toc_tree)
+    result = book_add_toc_tree2(toc_tree)
     # print(result)
-    # book.toc = result
+    book.toc = result
 
 
-# def book_add_toc_tree2(toc_tree):
-#     results = []
-#     for toc in toc_tree:
-#
-#         if toc['children']:
-#             results.append(
-#                 (
-#                     epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml'),
-#                     book_add_toc_tree2(toc['children'])
-#                 )
-#             )
-#
-#         else:
-#             results.append(
-#                 epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml')
-#             )
-#     return results
-
-
-def book_add_toc_tree(book, toc_tree):
+def book_add_toc_tree2(toc_tree):
+    results = []
     for toc in toc_tree:
+
         if toc['children']:
-            toc_child_chapter = []
-            for toc_child in toc['children']:
-                u_id = toc_child['uuid']
-                title = toc_child['title']
-                toc_child_chapter.append(epub.Link(u_id + '.xhtml', title, u_id))
-            book.toc.append(
+            results.append(
                 (
-                    epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml'),
-                    toc_child_chapter
+                    epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml', uid=toc['uuid']),
+                    book_add_toc_tree2(toc['children'])
                 )
             )
+
         else:
-            book.toc.append(epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml', uid=toc['uuid']))
+            results.append(
+                epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml', uid=toc['uuid']),
+
+            )
+    return results
+
+
+# def book_add_toc_tree(book, toc_tree):
+#     for toc in toc_tree:
+#         if toc['children']:
+#             toc_child_chapter = []
+#             for toc_child in toc['children']:
+#                 u_id = toc_child['uuid']
+#                 title = toc_child['title']
+#                 toc_child_chapter.append(epub.Link(u_id + '.xhtml', title, u_id))
+#             book.toc.append(
+#                 (
+#                     epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml'),
+#                     toc_child_chapter
+#                 )
+#             )
+#         else:
+#             book.toc.append(epub.Link(title=toc['title'], href=toc['uuid'] + '.xhtml', uid=toc['uuid']))
 
 
 def toc_list_to_tree(data):
