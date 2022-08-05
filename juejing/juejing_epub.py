@@ -117,7 +117,6 @@ if __name__ == '__main__':
 
     parser.add_argument('-c', '--cookie',
                         help='Cookie')
-
     parser.add_argument('-n', '--name',
                         help='Name the docset explicitly')
     parser.add_argument('--cover_url',

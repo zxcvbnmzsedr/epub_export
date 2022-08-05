@@ -152,7 +152,7 @@ def add_node(p, node):
 
 
 def html_template(html):
-    template = open("yuyuqe.html", 'rb').read().decode()
+    template = open("yuque/yuyuqe.html", 'rb').read().decode()
     h = template.replace('{0}', html)
 
     def filter_emoji(desstr, restr=''):
@@ -166,7 +166,7 @@ def html_template(html):
     return filter_emoji(h)
 
 
-def parse(name, cookie, url):
+def parse(name, cookie, url, cover_url):
     file_name = "download/" + name + '.epub'
     if os.path.exists(file_name):
         print(name + " 已经存在,跳过下载")
@@ -176,7 +176,8 @@ def parse(name, cookie, url):
     book.set_identifier(name)
     book.set_title(name)
     book.set_language('cn')
-
+    if cover_url:
+        book.set_cover('cover', requests.get(cover_url).content)
     book.add_author(name)
     book.spine.append('nav')
     add_book(cookie, url, book)
@@ -203,17 +204,11 @@ if __name__ == '__main__':
 
     parser.add_argument('-n', '--name',
                         help='Name the docset explicitly')
-    parser.add_argument('-d', '--destination',
-                        dest='path',
-                        default='',
-                        help='Put the resulting docset into PATH')
-    parser.add_argument('-i', '--icon',
+    parser.add_argument('--cover_url',
                         dest='filename',
                         help='Add PNG icon FILENAME to docset')
-    parser.add_argument('-p', '--index-page',
-                        help='Set the file that is shown')
     parser.add_argument('url',
                         help='Directory containing the HTML documents')
     results = parser.parse_args()
 
-    parse(results.name, results.cookie, results.url)
+    parse(results.name, results.cookie, results.url, results.cover_url)
