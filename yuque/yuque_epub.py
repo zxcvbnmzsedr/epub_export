@@ -187,10 +187,9 @@ def parse(name, cookie, url, cover_url):
     book.add_item(epub.EpubNav())
 
     # define CSS style
-    style = 'BODY {color: white;}'
-    nav_css = epub.EpubItem(uid="style_nav", file_name="style/nav.css", media_type="text/css", content=style)
+    style = open('yuque/style.css')
+    nav_css = epub.EpubItem(uid="style", file_name="style/style.css", media_type="text/css", content=style.read())
 
-    # add CSS file
     book.add_item(nav_css)
 
     # write to the file
