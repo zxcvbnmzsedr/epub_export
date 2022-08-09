@@ -168,7 +168,7 @@ def html_template(html):
 
 
 def parse(name, cookie, url, cover_url):
-    file_name = "download/" + name + '.epub'
+    file_name = "download/yuque/" + name + '.epub'
     if os.path.exists(file_name):
         print(name + " 已经存在,跳过下载")
         return
