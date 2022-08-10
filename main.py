@@ -2,6 +2,7 @@ import yaml
 import juejing.juejing_epub
 import yuque.yuque_epub
 import xiaozhuanlan.xiaozhuanlan_epub
+import imooc_local.imooc_local
 
 if __name__ == '__main__':
     with open("config.yaml", "r") as f:
@@ -29,3 +30,9 @@ if __name__ == '__main__':
                 xiaozhuanlan.xiaozhuanlan_epub.parse(name=book['name'], cookie=juejing_config['cookie'],
                                                      url=book['url'],
                                                      cover_url=book['cover_url'])
+        if 'imooc_local' in ayml:
+            juejing_config = ayml['imooc_local']
+            for book in juejing_config['books']:
+                print('开始下载慕课专栏 ' + book['name'])
+                imooc_local.imooc_local.parse(name=book['name'], url=book['url'],
+                                              cover_url=book['cover_url'])

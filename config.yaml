@@ -1,17 +1,62 @@
 juejing:
-  cookie: ''
+  cookie: 'MONITOR_WEB_ID=adea04a7-8c17-43a7-8387-029ed4e840f9; _ga=GA1.2.1811890097.1635767408; __tea_cookie_tokens_2608=%257B%2522user_unique_id%2522%253A%25226973933472261015048%2522%252C%2522web_id%2522%253A%25226973933472261015048%2522%252C%2522timestamp%2522%253A1642152772101%257D; _tea_utm_cache_2608=undefined; odin_tt=12227c103d0ddd01a68f0084dc16606ba420339b0311004cf300a71e584846b153531873b02021b5fc77969fd5cf1cee4621424419b6423f489177f3105743d2; passport_csrf_token=b661f26371d2f1359cc3d7a4c10d77e1; passport_csrf_token_default=b661f26371d2f1359cc3d7a4c10d77e1; n_mh=a0AATF3nSm7F2GAt7LPXkjdm7mMNm5aF39x9MAsYIA4; passport_auth_status=595e8e472ff47588f5a209d1a004e63f%2C; passport_auth_status_ss=595e8e472ff47588f5a209d1a004e63f%2C; sid_guard=2ee4ed839280617c368b9d038fd48239%7C1658231924%7C31536000%7CWed%2C+19-Jul-2023+11%3A58%3A44+GMT; uid_tt=63ff87a0713cba9aace21cc8ce0cbed1; uid_tt_ss=63ff87a0713cba9aace21cc8ce0cbed1; sid_tt=2ee4ed839280617c368b9d038fd48239; sessionid=2ee4ed839280617c368b9d038fd48239; sessionid_ss=2ee4ed839280617c368b9d038fd48239; sid_ucp_v1=1.0.0-KDEzM2Q2ZGNkNzY2MmQ2ZTUxNTZhMTdmZmY1MWQwZjMyMzFmODZlZmUKFwiHsIG__fXxBxD0uNqWBhiwFDgCQPEHGgJsZiIgMmVlNGVkODM5MjgwNjE3YzM2OGI5ZDAzOGZkNDgyMzk; ssid_ucp_v1=1.0.0-KDEzM2Q2ZGNkNzY2MmQ2ZTUxNTZhMTdmZmY1MWQwZjMyMzFmODZlZmUKFwiHsIG__fXxBxD0uNqWBhiwFDgCQPEHGgJsZiIgMmVlNGVkODM5MjgwNjE3YzM2OGI5ZDAzOGZkNDgyMzk'
   books:
-    - name: 从0开始深入学习Spring
-      book_id: '6857911863016390663'
-    - name: Kubernetes安全原理与实践
-      book_id: '7044052687779790880'
-    - name: SpringBoot源码解读与原理分析
-      book_id: '6844733814560784397'
-    - name: Vue商城项目开发实战
-      book_id: '6844733826191589390'
-
-#yuque:
-#  cookie: ''
-#  books:
-#    - name: Java面试指北
-#      url: 'https://www.yuque.com/books/share/04ac99ea-7726-4adb-8e57-bf21e2cc7183'
+    - name: MySQL是怎样运行的
+      book_id: '6844733769996304392'
+      cover_url: https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/6/20/172d144898de3145~tplv-t2oaga2asx-image.image
+    - name: 深入浅出 DDD
+      book_id: '7049273428938850307'
+      cover_url: https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5607bb4fb7c04919bf8f3c71765aec56~tplv-k3u1fbpfcp-watermark.image
+    - name: Java开发者的RPC实战课
+      book_id: '7047357110337667076'
+      cover_url: https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4ee3a08e1a624e8d860c7173c9c6a204~tplv-k3u1fbpfcp-watermark.image
+    - name: 计算机是怎样运行的
+      book_id: '6844733810282594312'
+      cover_url: https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b43d09d68164261b1c4bdbe1f387042~tplv-k3u1fbpfcp-watermark.image
+yuque:
+  cookie: 'lang=zh-cn; _yuque_session=kC4Wtyjde9lU30Bjjd_G1U9Mfx0m1JyApkwinV8KH4niu4z9ZdPhrJlVR-mjpGVltnRumJJCYeXcE6o6Sg45-g==; yuque_ctoken=_prOhmv55_bQZGBILqIm6jTR; acw_tc=0bca30fe16595314789282515e01766ac7cd5b3f7042ec69ebde3a3c208386; _TRACERT_COOKIE__SESSION=4d02f616-5cb8-4514-9db2-6f9ab4baead5; tree=a3852631c0d6-8cd4-4f8e-baa9-d399417764cb2'
+  books:
+    - name: Java面试指南
+      url: 'https://www.yuque.com/books/share/04ac99ea-7726-4adb-8e57-bf21e2cc7183'
+      cover_url: https://javaguide.cn/logo.png
+    - name: Java必读源码系列
+      url: 'https://www.yuque.com/books/share/7f846c65-f32e-4181-bf4e-f2e80d09c98a'
+      cover_url: https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/xingqiu/image-20220621091832348.png
+    - name: 从零开始写一个RPC框架
+      url: 'https://www.yuque.com/books/share/b7a2512c-6f7a-4afe-9d7e-5936b4c4cab0'
+      cover_url: https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/image-20220308100605485.png
+    - name: Kafka常见面试题
+      url: 'https://www.yuque.com/books/share/dd07d89b-9437-4f5c-b4f8-b294474aa992'
+      cover_url: https://www.diguage.com/images/kafka/kafka-architecture.png
+    - name: 程序员副业赚钱之路
+      url: 'https://www.yuque.com/books/share/1bd77211-f7e0-41fd-91bb-094769c978f9'
+      cover_url: https://img.gmz88.com:4433/uploadimg/image/20180516/20180516111115_44974.jpg
+    - name: Guide的读书笔记与文章精选集
+      url: https://www.yuque.com/books/share/f63faff5-53f9-4163-a059-7be93fc538b0
+      cover_url: https://img-blog.csdnimg.cn/20210617203915315.png
+xiaozhuanlan:
+  cookie: 'zhuanlan_1697=23087; user_id=244156; redirect_after_login=http%3A%2F%2Fxiaozhuanlan.com%2Ftopic%2F4690823715; _xiaozhuanlan_session=SmVlYmhFNGNheWN0Mnp2U3FaK2NiYUZxNFdCL0t3VXZsUzVoYy9veVNzOUl3MVQzeS9CKzkrdHZUbm1reDA4UUZ4L1Y3dFlQUDcrZWZwNmcwWXByOFJmUTlkK2lyU1RGOWxBSWJjZWUwYUMweWY3ekIvQmRkZGtick1YdkxiMWwtLXJHaWVLNmxRbjdmU2xLc0xrTlFGSlE9PQ%3D%3D--edfba39c79caac5848e9cc8bbc1a2deb59060854'
+  books:
+    - name: WWDC22内参
+      url: 'https://xiaozhuanlan.com/wwdc22'
+      cover_url: https://images.xiaozhuanlan.com/photo/2022/3854c4836eae9529defa6c303774fdba.png
+    - name: WWDC17内参
+      url: 'https://xiaozhuanlan.com/wwdc17'
+      cover_url: https://images.xiaozhuanlan.com/photo/2017/eef714456f16f1baa457b9e9eb0ebfe2.png
+    - name: WWDC18内参
+      url: 'https://xiaozhuanlan.com/wwdc18'
+      cover_url: https://images.xiaozhuanlan.com/photo/2018/82d662ab73dd4f35469b7707e7fbada2.png
+    - name: SwiftOldDriver精选
+      url: 'https://xiaozhuanlan.com/olddriver-selection'
+      cover_url: https://images.xiaozhuanlan.com/photo/2019/76df90008534883ff6465f0e9ef854a6.png
+    - name: WWDC20内参
+      url: 'https://xiaozhuanlan.com/wwdc20'
+      cover_url: https://images.xiaozhuanlan.com/photo/2020/996cdb3747e2d81e1f1318958af885ee.png
+    - name: WWDC21内参
+      url: 'https://xiaozhuanlan.com/wwdc21'
+      cover_url: https://images.xiaozhuanlan.com/photo/2021/c934e25085341528c6eb317b1ea60842.png
+imooc_local:
+  books:
+    - name: Java并发编程学习宝典
+      url: ../imooc专栏/Java并发编程学习宝典
+      cover_url: https://img1.sycdn.imooc.com/5d775d970001aa3805400720.jpg
