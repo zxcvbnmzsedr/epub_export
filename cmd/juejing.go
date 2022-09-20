@@ -31,7 +31,16 @@ var exportCmd = &cobra.Command{
 		e.SetAuthor(metadata.Author)
 		e.SetLang(metadata.Lang)
 		e.SetDescription(metadata.Description)
+
 		e.AddImage(metadata.Cover, "cover")
+
+		if metadata.CssPath != "" {
+			_, err := e.AddCSS(metadata.CssPath, "css")
+			if err != nil {
+				fmt.Println("添加CSS出错", err)
+				return
+			}
+		}
 
 		e.SetCover("../images/cover", "")
 		for i := range metadata.Chapters {
@@ -39,12 +48,12 @@ var exportCmd = &cobra.Command{
 			j.SectionContent(chapter)
 
 			content, _ := util.ExtractHtmlImageToEpub(chapter.Content, e)
-			e.AddSection(content, chapter.Title, "", "")
+			e.AddSection(content, chapter.Title, "", "../css/css")
 		}
 
 		err := e.Write(metadata.Title + ".epub")
 		if err != nil {
-
+			fmt.Println(err)
 		}
 	},
 }

@@ -11,6 +11,7 @@ type BookInfo struct {
 	Description string
 	Lang        string
 	Chapters    []Chapter
+	CssPath     string
 }
 
 type Chapter struct {

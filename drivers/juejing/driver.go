@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/buger/jsonparser"
 	"net/http"
+	"os"
 	"ztianzeng.com/epub_export/drivers/base"
 	"ztianzeng.com/epub_export/internal/model"
 )
@@ -45,6 +46,8 @@ func (d *Juejing) Metadata() (*model.BookInfo, error) {
 		})
 	}, "data", "sections")
 
+	currentPath, _ := os.Getwd()
+	cssPath := currentPath + "/drivers/juejing/style.css"
 	return &model.BookInfo{
 		Title:       string(title),
 		Author:      string(author),
@@ -52,6 +55,7 @@ func (d *Juejing) Metadata() (*model.BookInfo, error) {
 		Description: string(description),
 		Lang:        "zh",
 		Chapters:    chapters,
+		CssPath:     cssPath,
 	}, nil
 }
 
