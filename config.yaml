@@ -1,5 +1,5 @@
 juejing:
-  cookie: 'MONITOR_WEB_ID=adea04a7-8c17-43a7-8387-029ed4e840f9; _ga=GA1.2.1811890097.1635767408; __tea_cookie_tokens_2608=%257B%2522user_unique_id%2522%253A%25226973933472261015048%2522%252C%2522web_id%2522%253A%25226973933472261015048%2522%252C%2522timestamp%2522%253A1642152772101%257D; _tea_utm_cache_2608=undefined; odin_tt=12227c103d0ddd01a68f0084dc16606ba420339b0311004cf300a71e584846b153531873b02021b5fc77969fd5cf1cee4621424419b6423f489177f3105743d2; passport_csrf_token=b661f26371d2f1359cc3d7a4c10d77e1; passport_csrf_token_default=b661f26371d2f1359cc3d7a4c10d77e1; n_mh=a0AATF3nSm7F2GAt7LPXkjdm7mMNm5aF39x9MAsYIA4; passport_auth_status=595e8e472ff47588f5a209d1a004e63f%2C; passport_auth_status_ss=595e8e472ff47588f5a209d1a004e63f%2C; sid_guard=2ee4ed839280617c368b9d038fd48239%7C1658231924%7C31536000%7CWed%2C+19-Jul-2023+11%3A58%3A44+GMT; uid_tt=63ff87a0713cba9aace21cc8ce0cbed1; uid_tt_ss=63ff87a0713cba9aace21cc8ce0cbed1; sid_tt=2ee4ed839280617c368b9d038fd48239; sessionid=2ee4ed839280617c368b9d038fd48239; sessionid_ss=2ee4ed839280617c368b9d038fd48239; sid_ucp_v1=1.0.0-KDEzM2Q2ZGNkNzY2MmQ2ZTUxNTZhMTdmZmY1MWQwZjMyMzFmODZlZmUKFwiHsIG__fXxBxD0uNqWBhiwFDgCQPEHGgJsZiIgMmVlNGVkODM5MjgwNjE3YzM2OGI5ZDAzOGZkNDgyMzk; ssid_ucp_v1=1.0.0-KDEzM2Q2ZGNkNzY2MmQ2ZTUxNTZhMTdmZmY1MWQwZjMyMzFmODZlZmUKFwiHsIG__fXxBxD0uNqWBhiwFDgCQPEHGgJsZiIgMmVlNGVkODM5MjgwNjE3YzM2OGI5ZDAzOGZkNDgyMzk'
+  cookie: 'MONITOR_WEB_ID=75af7b89-8e1f-4739-82f2-35ccb4ac790f; __tea_cookie_tokens_2608=%257B%2522web_id%2522%253A%25227131915309707363878%2522%252C%2522user_unique_id%2522%253A%25227131915309707363878%2522%252C%2522timestamp%2522%253A1660528442384%257D; passport_csrf_token=5ffbea2fdfdc40d8b9579d6407869500; passport_csrf_token_default=5ffbea2fdfdc40d8b9579d6407869500; _tea_utm_cache_2018=undefined; n_mh=NCx8_ylRjFGKVo753BSmVaLQjGPclPtrKfy_yRvyxvk; sid_guard=ff3bc82b21d4657b6c0cbcc232af26cd%7C1660528479%7C31536000%7CTue%2C+15-Aug-2023+01%3A54%3A39+GMT; uid_tt=383d332615545fc1d3361ad57ce3d49b; uid_tt_ss=383d332615545fc1d3361ad57ce3d49b; sid_tt=ff3bc82b21d4657b6c0cbcc232af26cd; sessionid=ff3bc82b21d4657b6c0cbcc232af26cd; sessionid_ss=ff3bc82b21d4657b6c0cbcc232af26cd; sid_ucp_v1=1.0.0-KDg4NTUxZjlkMTgxYmY2MTllMjc2NmEzMjBkZjEyZDcxZmZiODdiMzMKFwjeiNDA_fXFBBDfzuaXBhiwFDgCQO8HGgJsZiIgZmYzYmM4MmIyMWQ0NjU3YjZjMGNiY2MyMzJhZjI2Y2Q; ssid_ucp_v1=1.0.0-KDg4NTUxZjlkMTgxYmY2MTllMjc2NmEzMjBkZjEyZDcxZmZiODdiMzMKFwjeiNDA_fXFBBDfzuaXBhiwFDgCQO8HGgJsZiIgZmYzYmM4MmIyMWQ0NjU3YjZjMGNiY2MyMzJhZjI2Y2Q; _tea_utm_cache_2608={%22utm_source%22:%22web_banner%22%2C%22utm_medium%22:%22banner%22%2C%22utm_campaign%22:%22Book_zjk_0803%22}'
   books:
     - name: MySQL是怎样运行的
       book_id: '6844733769996304392'
@@ -13,6 +13,9 @@ juejing:
     - name: 计算机是怎样运行的
       book_id: '6844733810282594312'
       cover_url: https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5b43d09d68164261b1c4bdbe1f387042~tplv-k3u1fbpfcp-watermark.image
+    - name: 基于Vite的组件库工程化实战
+      book_id: '7117582869358182403'
+      cover_url: https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ee7e2673f0e24b74a218bc16851d2bf8~tplv-k3u1fbpfcp-watermark.image
 yuque:
   cookie: 'lang=zh-cn; _yuque_session=kC4Wtyjde9lU30Bjjd_G1U9Mfx0m1JyApkwinV8KH4niu4z9ZdPhrJlVR-mjpGVltnRumJJCYeXcE6o6Sg45-g==; yuque_ctoken=_prOhmv55_bQZGBILqIm6jTR; acw_tc=0bca30fe16595314789282515e01766ac7cd5b3f7042ec69ebde3a3c208386; _TRACERT_COOKIE__SESSION=4d02f616-5cb8-4514-9db2-6f9ab4baead5; tree=a3852631c0d6-8cd4-4f8e-baa9-d399417764cb2'
   books:
@@ -60,3 +63,9 @@ imooc_local:
     - name: Java并发编程学习宝典
       url: ../imooc专栏/Java并发编程学习宝典
       cover_url: https://img1.sycdn.imooc.com/5d775d970001aa3805400720.jpg
+    - name: Spring Cloud微服务开发实践
+      url: ../imooc专栏/Spring Cloud微服务开发实践
+      cover_url: https://kubesphere.io/images/blogs/spring-cloud-on-kubesphere/0.springcloud.png
+    - name: 网络编程之Netty一站式精讲
+      url: ../imooc专栏/网络编程之Netty一站式精讲
+      cover_url: https://img1.sycdn.imooc.com/5f052aa90001f15b05400720.jpg
